@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/login_navigation"
+            app:startDestination="@id/loginFragment">
+
+    <fragment android:id="@+id/loginFragment" android:name="com.qihoo.jectpackdemo.ui.fragment.LoginFragment"
+              tools:layout="@layout/layout_login"
+              android:label="LoginFragment">
+
+        <action android:id="@+id/action_loginFragment_to_registerFragment" app:destination="@id/registerFragment"
+                app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+
+        <action android:id="@+id/action_loginFragment_to_detialFragment" app:destination="@id/detialFragment"/>
+    </fragment>
+
+    <fragment
+            tools:layout="@layout/layout_register"
+            android:id="@+id/registerFragment" android:name="com.qihoo.jectpackdemo.ui.fragment.RegisterFragment"
+              android:label="RegisterFragment">
+
+        <action android:id="@+id/action_registerFragment_to_mainActivity" app:destination="@id/mainActivity"
+                app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <argument android:name="name" app:argType="string"/>
+    </fragment>
+
+    <activity
+
+            android:id="@+id/mainActivity" android:name="com.qihoo.jectpackdemo.ui.actvity.MainActivity"
+              android:label="activity_main" tools:layout="@layout/activity_main"/>
+
+    <fragment
+            tools:layout="@layout/layout_detial"
+            android:id="@+id/detialFragment" android:name="com.qihoo.jectpackdemo.ui.fragment.DetialFragment"
+              android:label="DetialFragment">
+        <action android:id="@+id/action_detialFragment_to_mainActivity" app:destination="@id/mainActivity"
+                app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+    <fragment android:id="@+id/myFragment" android:name="com.qihoo.jectpackdemo.ui.fragment.MyFragment"
+              android:label="MyFragment"/>
+
+
+</navigation>
