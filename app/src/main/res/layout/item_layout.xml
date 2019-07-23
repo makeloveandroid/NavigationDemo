@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+                name="user"
+                type="com.qihoo.jectpackdemo.model.UserModel"/>
+    </data>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:text="@{String.valueOf(user.age)}"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="#f00"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:text="@{user.name}"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="#0f0"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:text="@{user.sex}"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="#00f"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+</layout>
