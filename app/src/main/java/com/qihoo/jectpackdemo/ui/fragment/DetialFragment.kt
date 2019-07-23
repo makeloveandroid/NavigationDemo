@@ -15,7 +15,7 @@ import com.qihoo.jectpackdemo.R
 class DetialFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.layout_register, null)
+        return inflater.inflate(R.layout.layout_detial, null)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

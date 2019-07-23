@@ -1,13 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<layout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            android:text="我的界面"/>
+    <data class="MyBinding">
 
-</FrameLayout>
+
+        <variable
+                name="context"
+                type="com.qihoo.jectpackdemo.ui.fragment.MyFragment"/>
+
+        <variable
+                name="vm"
+                type="com.qihoo.jectpackdemo.ui.fragment.my.model.MyViewModel"/>
+    </data>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:text="@{vm.title}"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+                app:adapter="@{vm.adatper}"
+                android:layout_width="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_weight="1"
+                android:layout_height="0dp"/>
+
+        <Button
+                android:text="加载数据"
+                android:onClick="@{()->context.loadData()}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+</layout>

@@ -1,13 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
 
-    <TextView
-            android:text="我是注册fragment"
-            android:layout_gravity="center"
-            android:textSize="30sp"
-            android:id="@+id/click"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-</FrameLayout>
+<layout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="androidx.databinding.ObservableArrayMap"/>
+        <import type="android.util.SparseArray"/>
+        <import type="java.util.Map"/>
+        <import type="java.util.List"/>
+        <!--泛型使用&lt; <-->
+        <variable name="list" type="List&lt;String>"/>
+        <variable name="sparse" type="SparseArray&lt;String>"/>
+        <variable name="map" type="Map&lt;String, String>"/>
+        <variable name="mapOb" type="Map&lt;String, String>"/>
+        <variable name="index" type="int"/>
+        <variable name="key" type="String"/>
+
+        <variable
+                name="register"
+                type="com.qihoo.jectpackdemo.model.Register"/>
+
+        <variable
+                name="activity"
+                type="com.qihoo.jectpackdemo.ui.fragment.RegisterFragment"/>
+    </data>
+
+    <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+        <EditText
+                android:hint="请输入账号"
+                android:text="@={register.user}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <EditText
+                android:text="@={register.pass}"
+                android:layout_marginTop="10dp"
+                android:hint="请输入密码"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <!--
+        自定义的属性，如何只是单纯传一个字符串呢？
+        例如这个:app:loadImage="@{register.iconUrl}"
+        解决方案：android:loadImage='@{"image_" + id}'
+        解决方案2：android:loadImage="@{'image_'}"
+        -->
+        <ImageView
+                app:loadImage='@{register.iconUrl}'
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="200dp"
+                app:paddingLeftAndRight="@{30}"
+                app:paddingTopAndBottom="@{60}"
+                android:layout_height="200dp"/>
+
+
+        <ImageView
+                android:background='@{"我专门传一个字符串"}'
+                android:layout_width="200dp"
+                app:paddingLeftAndRight="@{30}"
+                app:paddingTopAndBottom="@{60}"
+                android:layout_height="200dp"/>
+
+
+        <TextView
+                android:gravity="center"
+                android:text="@={register.remark}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <Button
+                android:layout_marginTop="10dp"
+                android:text="login"
+                android:onClick="@{(view)->activity.login()}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+        <Button
+                android:text="clear"
+                android:onClick="@{activity::clear}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <Button
+                android:text="修改备注"
+                android:onClick="@{()->activity.changeRemark()}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+</layout>
